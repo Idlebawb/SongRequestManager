@@ -16,7 +16,7 @@ namespace SongRequestManager
     public class Plugin
     {
         public string Name => "Song Request Manager";
-        public static SemVer.Version Version => IPA.Loader.PluginManager.GetPluginFromId("SongRequestManager").Version;
+        public static Hive.Versioning.Version Version => IPA.Loader.PluginManager.GetPluginFromId("SongRequestManager").HVersion;
 
         public static IPALogger Logger { get; internal set; }
 
@@ -101,7 +101,8 @@ namespace SongRequestManager
         private void OnLateMenuSceneLoadedFresh(ScenesTransitionSetupDataSO scenesTransitionSetupData)
         {
             // setup settings ui
-            BSMLSettings.instance.AddSettingsMenu("SRM", "SongRequestManager.Views.SongRequestManagerSettings.bsml", SongRequestManagerSettings.instance);
+            BSMLSettings.Instance.AddSettingsMenu("SRM", "SongRequestManager.Views.SongRequestManagerSettings.bsml", SongRequestManagerSettings.Instance);
+            
 
             var onlinePlayButton = Resources.FindObjectsOfTypeAll<Button>().First(x => x.name == "OnlineButton");
             var soloFreePlayButton = Resources.FindObjectsOfTypeAll<Button>().First(x => x.name == "SoloButton");
@@ -123,7 +124,7 @@ namespace SongRequestManager
             Solo,
             Online
         }
-
+        /* No more Songbrowser
         public static void SongBrowserCancelFilter()
         {
             if (SongBrowserPluginPresent)
@@ -142,7 +143,7 @@ namespace SongRequestManager
                 }
             }
         }
-
+        */
         [OnExit]
         public void OnExit()
         {

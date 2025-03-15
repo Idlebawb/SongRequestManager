@@ -76,11 +76,13 @@ namespace SongRequestManager
             {
                 Plugin.Log($"Scrolling to {levelID}! Retry={isRetry}");
 
-                // handle if song browser is present
+                /* handle if song browser is present
+                 * No SongBrowser 
                 if (Plugin.SongBrowserPluginPresent)
                 {
                     Plugin.SongBrowserCancelFilter();
                 }
+                */
 
                 // Make sure our custom songpack is selected
                 yield return SelectCustomSongPack();
@@ -125,6 +127,7 @@ namespace SongRequestManager
                     Plugin.Log("Selected song with index " + songIndex);
                     callback?.Invoke(true);
 
+                    /* this is unneccessary
                     if (RequestBotConfig.Instance.ClearNoFail)
                     {
                         try
@@ -145,6 +148,8 @@ namespace SongRequestManager
                         { }
 
                     }
+                    */
+
                     yield break;
                 }
             }

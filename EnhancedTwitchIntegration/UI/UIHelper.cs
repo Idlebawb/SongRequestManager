@@ -27,7 +27,7 @@ namespace SongRequestManager.UI
             btn.name = name;
             btn.interactable = true;
 
-            var localizer = btn.GetComponentInChildren<Polyglot.LocalizedTextMeshProUGUI>();
+            var localizer = btn.GetComponentInChildren<BGLib.Polyglot.LocalizedTextMeshProUGUI>();
             if (localizer != null)
             {
                 GameObject.Destroy(localizer);
@@ -35,7 +35,7 @@ namespace SongRequestManager.UI
             BeatSaberMarkupLanguage.Components.ExternalComponents externalComponents = btn.gameObject.AddComponent<BeatSaberMarkupLanguage.Components.ExternalComponents>();
             var textMesh = btn.GetComponentInChildren<TextMeshProUGUI>();
             textMesh.richText = true;
-            externalComponents.components.Add(textMesh);
+            externalComponents.Components.Add(textMesh);
 
             var contentTransform = btn.transform.Find("Content").GetComponent<LayoutElement>();
             if (contentTransform != null)

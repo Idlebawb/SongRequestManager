@@ -480,7 +480,7 @@ namespace SongRequestManager
             SetUIInteractivity();
         }
 
-        private void SongLoader_SongsLoadedEvent(SongCore.Loader arg1, ConcurrentDictionary <string,CustomPreviewBeatmapLevel> arg2)
+        private void SongLoader_SongsLoadedEvent(SongCore.Loader arg1, ConcurrentDictionary <string, BeatmapLevel> arg2)
         {
             _songListTableView?.ReloadData();
         }
@@ -530,7 +530,7 @@ namespace SongRequestManager
             _blacklistButton.interactable = interactive;
         }
 
-        private CustomPreviewBeatmapLevel CustomLevelForRow(int row)
+        private BeatmapLevel CustomLevelForRow(int row)
         {
             // get level id from hash
             var levelIds = SongCore.Collections.levelIDsForHash(SongInfoForRow(row).song["hash"]);
@@ -545,7 +545,7 @@ namespace SongRequestManager
             return isShowingHistory ? RequestHistory.Songs.ElementAt(row) : RequestQueue.Songs.ElementAt(row);
         }
 
-        private void PlayPreview(CustomPreviewBeatmapLevel level)
+        private void PlayPreview(BeatmapLevel level)
         {
             //_songPreviewPlayer.CrossfadeTo(level.previewAudioClip, level.previewStartTime, level.previewDuration);
         }
@@ -697,6 +697,11 @@ namespace SongRequestManager
             }
 
             UIHelper.AddHintText(_tableCell.transform as RectTransform, dt.Parse(RequestBot.SongHintText));
+        }
+
+        public float CellSize(int idx)
+        {
+            throw new NotImplementedException();
         }
     }
 }

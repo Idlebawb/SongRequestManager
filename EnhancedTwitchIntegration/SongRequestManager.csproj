@@ -35,8 +35,14 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BeatSaberPlus">
-      <HintPath>$(BeatSaberDir)\Plugins\BeatSaberPlus.dll</HintPath>
+    <Reference Include="BeatSaber.ViewSystem">
+      <HintPath>E:\SteamLibrary\steamapps\common\Beat Saber\Beat Saber_Data\Managed\BeatSaber.ViewSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="BGLib.AppFlow">
+      <HintPath>E:\SteamLibrary\steamapps\common\Beat Saber\Beat Saber_Data\Managed\BGLib.AppFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="BGLib.Polyglot">
+      <HintPath>E:\SteamLibrary\steamapps\common\Beat Saber\Beat Saber_Data\Managed\BGLib.Polyglot.dll</HintPath>
     </Reference>
     <Reference Include="BSML">
       <HintPath>$(BeatSaberDir)\Plugins\BSML.dll</HintPath>
@@ -45,12 +51,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(BeatSaberDir)\Plugins\BS_Utils.dll</HintPath>
     </Reference>
-    <Reference Include="CatCore">
-      <HintPath>$(BeatSaberDir)\Libs\CatCore.dll</HintPath>
-    </Reference>
     <Reference Include="ChatCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(BeatSaberDir)\Libs\ChatCore.dll</HintPath>
+    </Reference>
+    <Reference Include="ChatPlexSDK_BS">
+      <HintPath>E:\SteamLibrary\steamapps\common\Beat Saber\Plugins\ChatPlexSDK_BS.dll</HintPath>
+    </Reference>
+    <Reference Include="DataModels">
+      <HintPath>E:\SteamLibrary\steamapps\common\Beat Saber\Beat Saber_Data\Managed\DataModels.dll</HintPath>
     </Reference>
     <Reference Include="Hive.Versioning, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>$(BeatSaberDir)\Libs\Hive.Versioning.dll</HintPath>
@@ -63,6 +72,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\HMUI.dll</HintPath>
     </Reference>
+    <Reference Include="Interactable">
+      <HintPath>E:\SteamLibrary\steamapps\common\Beat Saber\Beat Saber_Data\Managed\Interactable.dll</HintPath>
+    </Reference>
     <Reference Include="IPA.Loader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\IPA.Loader.dll</HintPath>
@@ -71,18 +83,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\Main.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
-      <HintPath>$(BeatSaberDir)\Libs\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Polyglot, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\Polyglot.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>E:\SteamLibrary\steamapps\common\Beat Saber\Libs\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SemVer">
       <HintPath>$(BeatSaberDir)\Libs\SemVer.dll</HintPath>
-    </Reference>
-    <Reference Include="SongBrowser">
-      <HintPath>$(BeatSaberDir)\Plugins\SongBrowser.dll</HintPath>
     </Reference>
     <Reference Include="SongCore, Version=2.9.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -94,6 +99,7 @@
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="Unity.TextMeshPro">
       <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\Unity.TextMeshPro.dll</HintPath>
     </Reference>
@@ -128,7 +134,6 @@
     <Compile Include="ChatHandler.cs" />
     <Compile Include="ChatHandlers\BeatsaberRequestUIHandler.cs" />
     <Compile Include="ChatHandlers\BSPlusHandler.cs" />
-    <Compile Include="ChatHandlers\CatCoreHandler.cs" />
     <Compile Include="ChatHandlers\ChatCoreHandler.cs" />
     <Compile Include="ChatHandlers\ChatMessage.cs" />
     <Compile Include="ChatHandlers\ChatUser.cs" />
