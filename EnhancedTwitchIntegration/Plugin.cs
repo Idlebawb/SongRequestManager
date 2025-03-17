@@ -124,26 +124,7 @@ namespace SongRequestManager
             Solo,
             Online
         }
-        /* No more Songbrowser
-        public static void SongBrowserCancelFilter()
-        {
-            if (SongBrowserPluginPresent)
-            {
-                var _songBrowserUI = SongBrowser.SongBrowserApplication.Instance.GetField<SongBrowser.UI.SongBrowserUI, SongBrowser.SongBrowserApplication>("_songBrowserUI");
-                if (_songBrowserUI)
-                {
-                    //if (_songBrowserUI.Model.Settings.filterMode != SongBrowser.Configuration.SongFilterMode.None && _songBrowserUI.Model.Settings.sortMode != SongBrowser.Configuration.SongSortMode.Original)
-                    //{
-                        _songBrowserUI.CancelFilter();
-                    //}
-                }
-                else
-                {
-                    Plugin.Log("There was a problem obtaining SongBrowserUI object, unable to reset filters");
-                }
-            }
-        }
-        */
+
         [OnExit]
         public void OnExit()
         {

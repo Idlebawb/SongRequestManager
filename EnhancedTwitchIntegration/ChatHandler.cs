@@ -39,12 +39,11 @@ namespace SongRequestManager
             
             Plugin.Log($"Chatcore is installed? {ChatCorePluginPresent}");
             
-            /* No Catcore for now
-            if(CatCorePluginPresent && !RequestBotConfig.Instance.DisableChatcore)
-                _chatHandlers.Add(new CatCoreHandler());
-            */
+            
             if(ChatCorePluginPresent && !CatCorePluginPresent && !RequestBotConfig.Instance.DisableChatcore)
                 _chatHandlers.Add(new ChatCoreHandler());
+            if (CatCorePluginPresent && !RequestBotConfig.Instance.DisableChatcore)
+                _chatHandlers.Add(new CatCoreHandler());
             if (BSPlusPluginPresent && !ChatCorePluginPresent && !CatCorePluginPresent &&
                 !RequestBotConfig.Instance.DisableChatcore)
                 _chatHandlers.Add(new BSPlusHandler());
