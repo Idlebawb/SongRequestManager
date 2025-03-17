@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections;
+//using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Timers;
-
-#if OLDVERSION
-using TMPro;
-#endif
 
 using UnityEngine;
 using UnityEngine.UI;

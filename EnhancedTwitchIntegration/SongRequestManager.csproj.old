@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <BeatSaberDir Condition=" '$(BeatSaberDir)' == '' ">C:\Program Files (x86)\Steam\steamapps\common\Beat Saber</BeatSaberDir>
+    <ProjectGuid>{CDBD5008-0F51-408E-B89C-6142CB5C70E5}</ProjectGuid>
     <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SongRequestManager</RootNamespace>
-    <TargetFramework>net48</TargetFramework>
-	<Platforms>AnyCPU;x64</Platforms>
-    <ImplicitUsings>disable</ImplicitUsings>
-    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
-    <NoWarn>NU1701;NU1702</NoWarn>
-    <UseWPF>False</UseWPF>
-    <UseWindowsForms>False</UseWindowsForms>
-	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyName>SongRequestManager</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,14 +22,18 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;UNRELEASED</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;UNRELEASED</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
@@ -65,7 +70,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\HMLib.dll</HintPath>
     </Reference>
-    <Reference Include="HMUI" Publicize="True">
+    <Reference Include="HMUI">
       <HintPath>E:\SteamLibrary\steamapps\common\Beat Saber\Beat Saber_Data\Managed\HMUI.dll</HintPath>
     </Reference>
     <Reference Include="Interactable">
@@ -75,8 +80,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\IPA.Loader.dll</HintPath>
     </Reference>
-    <Reference Include="Main" Publicize="True">
-      <HintPath>E:\SteamLibrary\steamapps\common\Beat Saber\Beat Saber_Data\Managed\Main.dll</HintPath>
+    <Reference Include="Main, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\Main.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>E:\SteamLibrary\steamapps\common\Beat Saber\Libs\Newtonsoft.Json.dll</HintPath>
@@ -115,6 +121,42 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bot\ChatCommands.cs" />
+    <Compile Include="Bot\commands.cs" />
+    <Compile Include="Bot\Keyboard.cs" />
+    <Compile Include="Bot\ListManager.cs" />
+    <Compile Include="Bot\RequestBot.cs" />
+    <Compile Include="Bot\RequestBotListViewController.cs" />
+    <Compile Include="Bot\RequestFlowCoordinator.cs" />
+    <Compile Include="Bot\RequestInfo.cs" />
+    <Compile Include="Bot\RequestManager.cs" />
+    <Compile Include="Bot\RequestUserTracker.cs" />
+    <Compile Include="Bot\songdatabase.cs" />
+    <Compile Include="Bot\SongRequest.cs" />
+    <Compile Include="Bot\UnreleasedCode.cs" />
+    <Compile Include="Bot\util.cs" />
+    <Compile Include="ChatHandler.cs" />
+    <Compile Include="ChatHandlers\BeatsaberRequestUIHandler.cs" />
+    <Compile Include="ChatHandlers\BSPlusHandler.cs" />
+    <Compile Include="ChatHandlers\ChatCoreHandler.cs" />
+    <Compile Include="ChatHandlers\ChatMessage.cs" />
+    <Compile Include="ChatHandlers\ChatUser.cs" />
+    <Compile Include="ChatHandlers\IChatHandler.cs" />
+    <Compile Include="ChatHandlers\WebsocketHandler.cs" />
+    <Compile Include="Config\RequestBotConfig.cs" />
+    <Compile Include="Dispatcher.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleJson.cs" />
+    <Compile Include="UdpListener.cs" />
+    <Compile Include="UI\Base64Sprites.cs" />
+    <Compile Include="UI\KeyboardViewController.cs" />
+    <Compile Include="UI\UIHelper.cs" />
+    <Compile Include="UI\YesNoModal.cs" />
+    <Compile Include="UI\Settings.cs" />
+    <Compile Include="UI\SongListUtils.cs" />
+    <Compile Include="UI\SongRequestManagerSettings.cs" />
+    <Compile Include="WebClient.cs" />
     <EmbeddedResource Include="Views\SongRequestManagerSettings.bsml" />
   </ItemGroup>
   <ItemGroup>
@@ -122,17 +164,14 @@
     <EmbeddedResource Include="Views\YesNoModal.bsml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
   </PropertyGroup>
-  <PropertyGroup />
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(TargetDir)$(TargetFileName)" "$(BeatSaberDir)\Plugins"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

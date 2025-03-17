@@ -131,6 +131,8 @@ namespace SongRequestManager
                 ScrollView scrollView = go.AddComponent<ScrollView>();
 
                 _songListTableView = go.AddComponent<TableView>();
+               
+
                 go.AddComponent<RectMask2D>();
                 _songListTableView.transform.SetParent(container, false);
 
@@ -160,12 +162,13 @@ namespace SongRequestManager
 
                 _songListTableView.didSelectCellWithIdxEvent += DidSelectRow;
 
+                
                 _pageUpButton = UIHelper.CreateUIButton("SRMPageUpButton",
                     container,
                     "PracticeButton",
                     new Vector2(0f, 38.5f),
                     new Vector2(15f, 7f),
-                    () => { scrollView.PageUpButtonPressed(); },
+                    () =>  {scrollView.PageUpButtonPressed(); },
                     "˄");
                 Destroy(_pageUpButton.GetComponentsInChildren<ImageView>().FirstOrDefault(x => x.name == "Underline"));
 
@@ -174,9 +177,10 @@ namespace SongRequestManager
                     "PracticeButton",
                     new Vector2(0f, -38.5f),
                     new Vector2(15f, 7f),
-                    () => { scrollView.PageDownButtonPressed(); },
+                    () => {scrollView.PageDownButtonPressed(); },
                     "˅");
                 Destroy(_pageDownButton.GetComponentsInChildren<ImageView>().FirstOrDefault(x => x.name == "Underline"));
+                
                 #endregion
 
                 CenterKeys = new KEYBOARD(container, "", false, -15, 15);
@@ -553,7 +557,7 @@ namespace SongRequestManager
         private static Dictionary<string, Texture2D> _cachedTextures = new Dictionary<string, Texture2D>();
 
         #region TableView.IDataSource interface
-        public float CellSize() { return 10f; }
+        public float CellSize(int iDummy) { return 10f; }
 
         public int NumberOfCells()
         {
@@ -664,7 +668,7 @@ namespace SongRequestManager
                 if (level != null)
                 {
                     // set image from song's cover image
-                    var sprite = await level.GetCoverImageAsync(System.Threading.CancellationToken.None);
+                    var sprite = await level.previewMediaData.GetCoverSpriteAsync();
                     image.sprite = sprite;
                     imageSet = true;
                 }
@@ -699,9 +703,6 @@ namespace SongRequestManager
             UIHelper.AddHintText(_tableCell.transform as RectTransform, dt.Parse(RequestBot.SongHintText));
         }
 
-        public float CellSize(int idx)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

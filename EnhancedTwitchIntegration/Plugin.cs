@@ -101,7 +101,7 @@ namespace SongRequestManager
         private void OnLateMenuSceneLoadedFresh(ScenesTransitionSetupDataSO scenesTransitionSetupData)
         {
             // setup settings ui
-            BSMLSettings.Instance.AddSettingsMenu("SRM", "SongRequestManager.Views.SongRequestManagerSettings.bsml", SongRequestManagerSettings.Instance);
+            BSMLSettings.Instance.AddSettingsMenu("SRM", "SongRequestManager.Views.SongRequestManagerSettings.bsml", SongRequestManagerSettings.instance);
             
 
             var onlinePlayButton = Resources.FindObjectsOfTypeAll<Button>().First(x => x.name == "OnlineButton");

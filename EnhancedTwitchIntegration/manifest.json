@@ -5,9 +5,9 @@
   "gameVersion": "1.39.1",
   "id": "SongRequestManager",
   "name": "Song Request Manager",
-  "version": "2.15.15",
+  "version": "2.16.0",
   "dependsOn": {
-    "BSIPA": "^4.1.4",
+    "BSIPA": "^4.3.5",
     "BeatSaberMarkupLanguage": "^1.5.1",
     "BS Utils": "^1.8.0",
     "SongCore": "^3.0.0",

@@ -50,7 +50,7 @@ namespace SongRequestManager.UI
             var stackLayoutGroup = btn.GetComponentInChildren<LayoutGroup>();
             if (stackLayoutGroup != null)
             {
-                externalComponents.components.Add(stackLayoutGroup);
+                externalComponents.Components.Add(stackLayoutGroup);
             }
             
             btn.onClick.RemoveAllListeners();

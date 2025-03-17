@@ -263,3 +263,4 @@ __pycache__/
 # Ignore local development files
 EnhancedTwitchChat/AngturilPrivate/
  
+/EnhancedTwitchIntegration/SongRequestManager - Backup.csproj

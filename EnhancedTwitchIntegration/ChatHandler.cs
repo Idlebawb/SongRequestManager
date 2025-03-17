@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using SongRequestManager.ChatHandlers;
 using BeatSaberMarkupLanguage.Util;
-
+using UnityEngine;
 
 namespace SongRequestManager
 {
     public class ChatHandler : PersistentSingleton<ChatHandler>
+    //public class ChatHandler : MonoBehaviour
     {
         bool initialized = false;
         private static List<IChatHandler> _chatHandlers = new List<IChatHandler>();
@@ -22,7 +23,8 @@ namespace SongRequestManager
 
         public void Awake()
         {
-            DontDestroyOnLoad(gameObject);
+            //BSUtil PersistentSingleton doesn't have gameobject??
+            //DontDestroyOnLoad(gameObject);
         }
 
 
